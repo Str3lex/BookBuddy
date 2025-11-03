@@ -1,0 +1,43 @@
+name: Build and Deploy to Azure Web App
+
+on:
+  push:
+    branches:
+      
+main    # ali master, če je tvoja glavna veja drugače poimenovana
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+name: Checkout repository
+    uses: actions/checkout@v4
+
+    
+name: Log in to GitHub Container Registry
+    uses: docker/login-action@v3
+    with:
+      registry: ghcr.io
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+
+    
+name: Build Docker image
+    run: |
+      IMAGE=ghcr.io/${{ github.repository }}:latest
+      docker build -t $IMAGE .
+      echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+
+    
+name: Push Docker image
+    run: docker push $IMAGE
+
+    
+name: Deploy to Azure Web App for Containers
+    uses: azure/webapps-deploy@v3
+    with:
+      app-name: bookbuddy-app         # 🔹 zamenjaj z natančnim imenom svojega Web App iz Azure
+      publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+      images: ${{ env.IMAGE }}
