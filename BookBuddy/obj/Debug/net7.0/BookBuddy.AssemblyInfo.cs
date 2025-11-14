@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookBuddy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb8f8e24ef69eed54904bc3296e737d73ca76a05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff7c350a9ee2b1ca3c48f5e8cc2c6b420b58150d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookBuddy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookBuddy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

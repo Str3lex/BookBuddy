@@ -1,0 +1,30 @@
+﻿@page
+@model BookBuddy.Pages.Books.AddModel
+
+<div class="container mt-4">
+    <h2>Dodaj knjigo</h2>
+
+    <form method="post">
+        <div class="mb-3">
+            <label>Naslov</label>
+            <input asp-for="Naslov" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Avtor</label>
+            <input asp-for="Avtor" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Leto izdaje</label>
+            <input asp-for="LetoIzdaje" type="number" class="form-control" />
+        </div>
+
+        <button class="btn btn-primary">Dodaj</button>
+    </form>
+
+    @if (Model.Sporocilo != null)
+    {
+        <p class="text-success mt-3">@Model.Sporocilo</p>
+    }
+</div>

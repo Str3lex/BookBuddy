@@ -1,0 +1,11 @@
+@page
+@model BookBuddy.Pages.Auth.ActivityModel
+
+<h2>Aktivnosti</h2>
+
+<ul>
+@foreach (var a in Model.Aktivnosti) 
+{
+    <li>@a</li>
+}
+</ul>

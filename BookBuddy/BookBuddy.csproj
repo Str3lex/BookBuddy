@@ -10,4 +10,10 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Content Remove="Pages\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\Register.cshtml" />
+</ItemGroup>
 </Project>

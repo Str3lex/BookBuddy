@@ -1,0 +1,53 @@
+﻿@page
+@model BookBuddy.Pages.Books.ListModel
+@{
+    var knjige = Model.Knjige;
+}
+
+<div class="container mt-4">
+    <h2>Moje knjige</h2>
+
+    @if (!knjige.Any())
+    {
+        <p>Trenutno nimaš dodanih nobenih knjig.</p>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Naslov</th>
+                    <th>Avtor</th>
+                    <th>Status</th>
+                    <th>Ocena</th>
+                    <th>Akcije</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var k in knjige)
+                {
+                    <tr>
+                        <td>@k.Naslov</td>
+                        <td>@k.Avtor</td>
+                        <td>@k.Status</td>
+                        <td>@k.Rate</td>
+
+                        <td>
+                            <a class="btn btn-primary btn-sm"
+                               asp-page="/Books/Rate"
+                               asp-route-id="@k.Id">
+                                Oceni
+                            </a>
+
+                            <a class="btn btn-warning btn-sm"
+                               asp-page="/Books/Status"
+                               asp-route-id="@k.Id">
+                                Spremeni status
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
