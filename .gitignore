@@ -1,2 +1,32 @@
-.DS_Store
-BookBuddy/.DS_Store
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.userprefs
+
+# Logs
+*.log
+
+# Cache
+*.cache
+*.db
+*.*suo
+
+# Other
+*.pdb
+*.mdb
+*.vcxproj.user
+
+# Razor
+**/staticwebassets/**
+
+# NuGet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Temporary
+~$*

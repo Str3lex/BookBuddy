@@ -1,0 +1,30 @@
+﻿@page
+@model BookBuddy.Pages.Auth.RegisterModel
+
+<div class="container mt-4">
+    <h2>Registracija</h2>
+
+    <form method="post">
+        <div class="mb-3">
+            <label>Uporabniško ime</label>
+            <input asp-for="UporabniskoIme" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>E-pošta</label>
+            <input asp-for="Eposta" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Geslo</label>
+            <input asp-for="Geslo" type="password" class="form-control" />
+        </div>
+
+        <button class="btn btn-primary">Registriraj</button>
+    </form>
+
+    @if (Model.Sporocilo != null)
+    {
+        <p class="text-success mt-3">@Model.Sporocilo</p>
+    }
+</div>
