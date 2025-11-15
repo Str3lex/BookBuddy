@@ -1,0 +1,66 @@
+﻿@page
+@model BookBuddy.Pages.IndexModel
+
+<div class="text-center">
+    <h1 class="display-4">Dobrodošli v BookBuddy</h1>
+
+    <div class="row mt-5">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">📚 Knjige</h5>
+                    <p class="card-text">Upravljajte svojo knjižnico</p>
+                    <a href="/Books/List" class="btn btn-primary">Vse knjige</a>
+                    <a href="/Books/Add" class="btn btn-success mt-2">Dodaj knjigo</a>
+                    <a href="/Books/Random" class="btn btn-info mt-2">Naključna knjiga</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">🔧 Orodja</h5>
+                    <p class="card-text">Upravljajte svoje branje</p>
+                    <a href="/Books/Similar" class="btn btn-outline-info mt-2">Podobne knjige</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">👥 Socialno</h5>
+                    <p class="card-text">Povežite se z drugimi</p>
+                    <a href="/Auth/Activity" class="btn btn-warning">Aktivnosti</a>
+                    <a href="/Auth/Follow" class="btn btn-secondary mt-2">Sledi uporabnikom</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Račun</h5>
+                    <a href="/Auth/Login" class="btn btn-outline-dark">Prijava</a>
+                    <a href="/Auth/Register" class="btn btn-outline-dark">Registracija</a>
+                    <a href="/Uporabnik/Profile" class="btn btn-outline-dark">Moj profil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.TrenutniUporabnik != null)
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="alert alert-success">
+                    <h5>Pozdravljen, @Model.TrenutniUporabnik.UporabniskoIme!</h5>
+                    <p>Prijavljeni ste kot: @Model.TrenutniUporabnik.Email</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

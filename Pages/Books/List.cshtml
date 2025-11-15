@@ -1,0 +1,50 @@
+﻿@page
+@model BookBuddy.Pages.Books.ListModel
+
+<h2>Seznam knjig</h2>
+
+@if (Model.Knjige.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Naslov</th>
+                <th>Avtor</th>
+                <th>Žanr</th>
+                <th>Leto</th>
+                <th>Status</th>
+                <th>Ocena</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var knjiga in Model.Knjige)
+            {
+                <tr>
+                    <td>@knjiga.Naslov</td>
+                    <td>@knjiga.Avtor</td>
+                    <td>@knjiga.Zanr</td>
+                    <td>@knjiga.LetoIzdaje</td>
+                    <td>@knjiga.Status</td>
+                    <td>@knjiga.Rate/5</td>
+                    <td>
+                        <a href="/Books/Status?id=@knjiga.Id" class="btn btn-sm btn-primary">Spremeni status</a>
+                        <a href="/Books/Rate?id=@knjiga.Id" class="btn btn-sm btn-warning">Oceni</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>Ni še dodanih knjig. <a href="/Books/Add">Dodaj prvo knjigo</a></p>
+    </div>
+}
+
+<p>
+    <a href="/Books/Add" class="btn btn-success">Dodaj novo knjigo</a>
+    <a href="/Books/Random" class="btn btn-info">Naključna knjiga</a>
+    <a href="/Books/Similar" class="btn btn-secondary">Podobne knjige</a>
+</p>
