@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\vid\\Desktop\\BookBuddy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6B12227A-6CB7-4104-9596-0FE827145602}|BookBuddy\\BookBuddy.csproj|c:\\users\\vid\\desktop\\bookbuddy\\bookbuddy\\models\\komentar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B12227A-6CB7-4104-9596-0FE827145602}|BookBuddy\\BookBuddy.csproj|solutionrelative:bookbuddy\\models\\komentar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6B12227A-6CB7-4104-9596-0FE827145602}|BookBuddy\\BookBuddy.csproj|c:\\users\\vid\\desktop\\bookbuddy\\bookbuddy\\models\\knjiga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B12227A-6CB7-4104-9596-0FE827145602}|BookBuddy\\BookBuddy.csproj|solutionrelative:bookbuddy\\models\\knjiga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -102,11 +106,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "Komentar.cs",
+              "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Models\\Komentar.cs",
+              "RelativeDocumentMoniker": "BookBuddy\\Models\\Komentar.cs",
+              "ToolTip": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Models\\Komentar.cs",
+              "RelativeToolTip": "BookBuddy\\Models\\Komentar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T17:49:35.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Status.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Status.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Status.cshtml.cs",
@@ -118,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Status.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Status.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Status.cshtml",
@@ -130,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "List.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\List.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\List.cshtml.cs",
@@ -142,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "DataStore.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Services\\DataStore.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Services\\DataStore.cs",
@@ -154,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Auth\\Register.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Auth\\Register.cshtml",
@@ -166,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Register.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Auth\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Auth\\Register.cshtml.cs",
@@ -178,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Auth\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Auth\\Login.cshtml.cs",
@@ -190,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Comments.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Comments.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Comments.cshtml.cs",
@@ -198,12 +219,11 @@
               "RelativeToolTip": "BookBuddy\\Pages\\Books\\Comments.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-15T16:55:31.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-15T16:55:31.764Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Shared\\_Layout.cshtml",
@@ -215,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Knjiga.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Models\\Knjiga.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Models\\Knjiga.cs",
@@ -228,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Index.cshtml",
@@ -240,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Rate.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Rate.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Rate.cshtml.cs",
@@ -252,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Rate.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Rate.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Rate.cshtml",
@@ -264,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Index.cshtml.cs",
@@ -276,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Random.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Random.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Random.cshtml",
@@ -288,7 +308,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Random.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Random.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Random.cshtml.cs",
@@ -300,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Program.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Program.cs",
@@ -312,7 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Uporabnik.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Models\\Uporabnik.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Models\\Uporabnik.cs",
@@ -324,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Comments.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Comments.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Comments.cshtml",
@@ -336,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "List.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\List.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\List.cshtml",
@@ -348,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Add.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Books\\Add.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Books\\Add.cshtml.cs",
@@ -360,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Auth\\Login.cshtml",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Auth\\Login.cshtml",
@@ -372,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Profile.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\vid\\Desktop\\BookBuddy\\BookBuddy\\Pages\\Uporabnik\\Profile.cshtml.cs",
               "RelativeDocumentMoniker": "BookBuddy\\Pages\\Uporabnik\\Profile.cshtml.cs",
@@ -381,10 +401,6 @@
               "ViewState": "AgIAABEAAAAAAAAAAAAewCEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-15T16:34:56.012Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
             }
           ]
         }
