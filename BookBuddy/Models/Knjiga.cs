@@ -7,5 +7,6 @@ public class Knjiga
     public string Avtor { get; set; } = string.Empty;
     public string Zanr { get; set; } = string.Empty;
     public int LetoIzdaje { get; set; }
-    public string Status { get; set; } = "Ni prebrana"; // Dodajte to lastnost
+    public string Status { get; set; } = "Ni prebrana";
+    public int Rate { get; set; }
 }

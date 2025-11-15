@@ -7,31 +7,46 @@ namespace BookBuddy.Pages.Books
 {
     public class AddModel : PageModel
     {
-        [BindProperty] public string Naslov { get; set; }
-        [BindProperty] public string Avtor { get; set; }
-        [BindProperty] public int LetoIzdaje { get; set; }
+        private readonly DataStore _dataStore;
+
+        public AddModel(DataStore dataStore)
+        {
+            _dataStore = dataStore;
+        }
+
+        [BindProperty]
+        public string Naslov { get; set; } = string.Empty;
+
+        [BindProperty]
+        public string Avtor { get; set; } = string.Empty;
+
+        [BindProperty]
+        public int LetoIzdaje { get; set; }
 
         public string? Sporocilo { get; set; }
 
+        public void OnGet()
+        {
+        }
+
         public IActionResult OnPost()
         {
-            var user = DataStore.TrenutniUporabnik;
+            var user = _dataStore.TrenutniUporabnik;
             if (user == null)
                 return RedirectToPage("/Auth/Login");
 
             var knjiga = new Knjiga
             {
-                Id = DataStore.Knjige.Count + 1,
+                Id = _dataStore.Knjige.Count + 1,
                 Naslov = Naslov,
                 Avtor = Avtor,
+                LetoIzdaje = LetoIzdaje,
                 Status = "Ni prebrana",
-                Rate = 0,
+                Zanr = "Neopredeljeno"  
             };
 
-            // Če želiš tudi leto izdaje shranjevati:
-            // knjiga.LetoIzidaje = LetoIzidaje;
-
-            DataStore.Knjige.Add(knjiga);
+            _dataStore.Knjige.Add(knjiga);
+            _dataStore.Aktivnosti.Add($"{user.UporabniskoIme} je dodal knjigo: {Naslov}");
 
             Sporocilo = "Knjiga uspešno dodana!";
             return Page();

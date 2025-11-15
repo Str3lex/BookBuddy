@@ -1,23 +1,47 @@
 ﻿@page
 @model BookBuddy.Pages.Books.RateModel
 
-<div class="container mt-4">
-    <h2>Oceni knjigo</h2>
+<h2>Oceni knjigo</h2>
+
+@if (Model.Knjiga != null)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Knjiga.Naslov</h5>
+            <p class="card-text">
+                <strong>Avtor:</strong> @Model.Knjiga.Avtor<br>
+                <strong>Trenutna ocena:</strong> @Model.Knjiga.Rate/5
+            </p>
+        </div>
+    </div>
 
     <form method="post">
-        <!-- skriti ID knjige -->
         <input type="hidden" asp-for="Id" />
 
-        <div class="mb-3">
-            <label>Ocena (1–5)</label>
-            <input asp-for="Ocena" class="form-control" type="number" min="1" max="5" />
+        <div class="form-group">
+            <label>Izberi oceno (1-5):</label>
+            <select asp-for="Ocena" class="form-control">
+                <option value="1">1 ⭐</option>
+                <option value="2">2 ⭐⭐</option>
+                <option value="3">3 ⭐⭐⭐</option>
+                <option value="4">4 ⭐⭐⭐⭐</option>
+                <option value="5">5 ⭐⭐⭐⭐⭐</option>
+            </select>
         </div>
 
-        <button class="btn btn-primary">Shrani oceno</button>
+        <button type="submit" class="btn btn-primary mt-3">Shrani oceno</button>
+        <a href="/Books/List" class="btn btn-secondary mt-3">Nazaj na seznam</a>
     </form>
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>Knjiga ni najdena!</p>
+    </div>
+    <a href="/Books/List" class="btn btn-secondary">Nazaj na seznam</a>
+}
 
-    @if (Model.Sporocilo != null)
-    {
-        <p class="text-danger mt-3">@Model.Sporocilo</p>
-    }
-</div>
+@if (Model.Sporocilo != null)
+{
+    <div class="alert alert-info mt-3">@Model.Sporocilo</div>
+}

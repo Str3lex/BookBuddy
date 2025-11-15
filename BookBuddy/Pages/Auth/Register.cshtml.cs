@@ -7,30 +7,42 @@ namespace BookBuddy.Pages.Auth;
 
 public class RegisterModel : PageModel
 {
-    [BindProperty] public string UporabniskoIme { get; set; }
-    [BindProperty] public string Eposta { get; set; }
-    [BindProperty] public string Geslo { get; set; }
+    private readonly DataStore _dataStore;
+
+    public RegisterModel(DataStore dataStore)
+    {
+        _dataStore = dataStore;
+    }
+
+    [BindProperty]
+    public string UporabniskoIme { get; set; } = string.Empty;
+
+    [BindProperty]
+    public string Eposta { get; set; } = string.Empty;
+
+    [BindProperty]
+    public string Geslo { get; set; } = string.Empty;
 
     public string? Sporocilo { get; set; }
 
     public IActionResult OnPost()
     {
-        if (DataStore.Uporabniki.Any(u => u.UporabniskoIme == UporabniskoIme))
+        if (_dataStore.Uporabniki.Any(u => u.UporabniskoIme == UporabniskoIme))
         {
             Sporocilo = "Uporabnik že obstaja!";
             return Page();
         }
 
-        var user = new BookBuddy.Models.Uporabnik
-
+        var user = new Models.Uporabnik
         {
             UporabniskoIme = UporabniskoIme,
-            Eposta = Eposta,
+            Email = Eposta,
             Geslo = Geslo
         };
 
-        DataStore.Uporabniki.Add(user);
-        DataStore.TrenutniUporabnik = user;
+        _dataStore.Uporabniki.Add(user);
+        _dataStore.TrenutniUporabnik = user;
+        _dataStore.Aktivnosti.Add($"Nov uporabnik registriran: {UporabniskoIme}");
 
         return RedirectToPage("/Uporabnik/Profile");
     }

@@ -24,10 +24,21 @@ public class StatusModel : PageModel
     public string? Sporocilo { get; set; }
 
     public List<SelectListItem> VseKnjige { get; set; } = new List<SelectListItem>();
+    public Knjiga? IzbranaKnjiga { get; set; }
 
-    public void OnGet()
+    public void OnGet(int? id)
     {
         PripraviSeznamKnjig();
+
+        if (id.HasValue)
+        {
+            Id = id.Value;
+            IzbranaKnjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == Id);
+            if (IzbranaKnjiga != null)
+            {
+                Status = IzbranaKnjiga.Status;
+            }
+        }
     }
 
     public IActionResult OnPost()
@@ -47,25 +58,29 @@ public class StatusModel : PageModel
             return Page();
         }
 
+        // Shrani stari status za aktivnost
+        var stariStatus = knjiga.Status;
+
         // Posodobi status knjige
         knjiga.Status = Status;
 
         // Dodaj aktivnost
-        _dataStore.Aktivnosti.Add($"{_dataStore.TrenutniUporabnik?.UporabniskoIme ?? "Gost"} je spremenil status knjige '{knjiga.Naslov}' na: {Status}");
+        _dataStore.Aktivnosti.Add($"{_dataStore.TrenutniUporabnik?.UporabniskoIme ?? "Gost"} je spremenil status knjige '{knjiga.Naslov}' iz '{stariStatus}' na '{Status}'");
 
         Sporocilo = $"Status knjige '{knjiga.Naslov}' je bil uspešno posodobljen na: {Status}";
 
         PripraviSeznamKnjig();
+        IzbranaKnjiga = knjiga;
         return Page();
     }
 
     private void PripraviSeznamKnjig()
     {
         VseKnjige = _dataStore.Knjige
-            .Select(k => new SelectListItem 
-            { 
-                Value = k.Id.ToString(), 
-                Text = $"{k.Naslov} - {k.Avtor}" 
+            .Select(k => new SelectListItem
+            {
+                Value = k.Id.ToString(),
+                Text = $"{k.Naslov} - {k.Avtor}"
             })
             .ToList();
     }

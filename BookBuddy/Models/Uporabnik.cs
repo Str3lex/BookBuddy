@@ -2,13 +2,11 @@
 
 public class Uporabnik
 {
-    public int Id { get; set; }
-    public string UporabniskoIme { get; set; } = "";
-    public string Eposta { get; set; } = "";
-    public string Geslo { get; set; } = "";
-    public string Ime { get; set; } = "";
-    public string Priimek { get; set; } = "";
-    public string NajljubsaZvrst { get; set; } = "";
-    public List<Uporabnik> Sledi { get; set; } = new List<Uporabnik>(); 
-
+    public string UporabniskoIme { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Geslo { get; set; } = string.Empty;
+    public string Ime { get; set; } = string.Empty;
+    public string Priimek { get; set; } = string.Empty;
+    public string NajljubsaZvrst { get; set; } = string.Empty;
+    public List<Uporabnik> Sledi { get; set; } = new List<Uporabnik>();
 }

@@ -7,10 +7,17 @@ namespace BookBuddy.Pages.Books;
 
 public class ListModel : PageModel
 {
-    public List<Knjiga> Knjige { get; set; }
+    private readonly DataStore _dataStore;
+
+    public ListModel(DataStore dataStore)
+    {
+        _dataStore = dataStore;
+    }
+
+    public List<Knjiga> Knjige { get; set; } = new List<Knjiga>();
 
     public void OnGet()
     {
-        Knjige = DataStore.Knjige.ToList();
+        Knjige = _dataStore.Knjige.ToList();
     }
 }

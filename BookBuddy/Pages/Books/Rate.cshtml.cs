@@ -7,6 +7,13 @@ namespace BookBuddy.Pages.Books
 {
     public class RateModel : PageModel
     {
+        private readonly DataStore _dataStore;
+
+        public RateModel(DataStore dataStore)
+        {
+            _dataStore = dataStore;
+        }
+
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
@@ -19,13 +26,13 @@ namespace BookBuddy.Pages.Books
         public void OnGet()
         {
             // Najdi knjigo po ID
-            Knjiga = DataStore.Knjige.FirstOrDefault(k => k.Id == Id);
+            Knjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == Id);
         }
 
         public IActionResult OnPost()
         {
             // Najdi knjigo po ID
-            var knjiga = DataStore.Knjige.FirstOrDefault(k => k.Id == Id);
+            var knjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == Id);
 
             if (knjiga == null)
             {
@@ -35,6 +42,9 @@ namespace BookBuddy.Pages.Books
 
             // Posodobi oceno
             knjiga.Rate = Ocena;
+
+            // Dodaj aktivnost
+            _dataStore.Aktivnosti.Add($"{_dataStore.TrenutniUporabnik?.UporabniskoIme ?? "Gost"} je ocenil knjigo '{knjiga.Naslov}' z oceno {Ocena}");
 
             // Vrni na seznam
             return RedirectToPage("/Books/List");
