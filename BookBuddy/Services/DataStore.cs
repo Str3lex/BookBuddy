@@ -2,10 +2,12 @@
 
 namespace BookBuddy.Services;
 
-public static class DataStore
+public class DataStore
 {
-    public static List<Uporabnik> Uporabniki = new();
-    public static List<Knjiga> Knjige = new();
-
-    public static Uporabnik? TrenutniUporabnik { get; set; }
+    public List<Uporabnik> Uporabniki { get; set; } = new List<Uporabnik>();
+    public List<Knjiga> Knjige { get; set; } = new List<Knjiga>();
+    public List<string> Aktivnosti { get; set; } = new List<string>();
+    public List<Knjiga> IzbraneKnjige { get; set; } = new List<Knjiga>();
+    public List<Komentar> Komentarji { get; set; } = new List<Komentar>();
+    public Uporabnik? TrenutniUporabnik { get; set; }
 }

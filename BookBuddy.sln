@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1706.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBuddy", "BookBuddy\BookBuddy.csproj", "{6B12227A-6CB7-4104-9596-0FE827145602}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{765A69C1-39EC-4EE9-8EAD-7545F7E312A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBuddy", "BookBuddy.csproj", "{807DCBD0-60C1-412C-806A-3E9D962050E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6B12227A-6CB7-4104-9596-0FE827145602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B12227A-6CB7-4104-9596-0FE827145602}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B12227A-6CB7-4104-9596-0FE827145602}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B12227A-6CB7-4104-9596-0FE827145602}.Release|Any CPU.Build.0 = Release|Any CPU
-		{765A69C1-39EC-4EE9-8EAD-7545F7E312A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{765A69C1-39EC-4EE9-8EAD-7545F7E312A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{765A69C1-39EC-4EE9-8EAD-7545F7E312A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{765A69C1-39EC-4EE9-8EAD-7545F7E312A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{807DCBD0-60C1-412C-806A-3E9D962050E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{807DCBD0-60C1-412C-806A-3E9D962050E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{807DCBD0-60C1-412C-806A-3E9D962050E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{807DCBD0-60C1-412C-806A-3E9D962050E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EF10694D-2E5D-46A9-8D02-35FC86EFA87D}
+		SolutionGuid = {60A68EDC-FD04-490D-A997-48DD42D89CD3}
 	EndGlobalSection
 EndGlobal

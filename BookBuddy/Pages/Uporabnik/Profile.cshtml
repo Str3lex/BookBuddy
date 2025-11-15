@@ -1,30 +1,43 @@
 ﻿@page
 @model BookBuddy.Pages.Uporabnik.ProfileModel
 
-<div class="container mt-4">
-    <h2>Urejanje profila</h2>
+<h2>Moj profil</h2>
+
+@if (Model.TrenutniUporabnik != null)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Pozdravljen, @Model.TrenutniUporabnik.UporabniskoIme!</h5>
+            <p class="card-text">Email: @Model.TrenutniUporabnik.Email</p>
+        </div>
+    </div>
 
     <form method="post">
-        <div class="mb-3">
-            <label>Ime</label>
+        <div class="form-group">
+            <label>Ime:</label>
             <input asp-for="Ime" class="form-control" />
         </div>
 
-        <div class="mb-3">
-            <label>Priimek</label>
+        <div class="form-group">
+            <label>Priimek:</label>
             <input asp-for="Priimek" class="form-control" />
         </div>
 
-        <div class="mb-3">
-            <label>Najljubša zvrst</label>
+        <div class="form-group">
+            <label>Najljubša zvrst:</label>
             <input asp-for="NajljubsaZvrst" class="form-control" />
         </div>
 
-        <button class="btn btn-primary">Shrani</button>
+        <button type="submit" class="btn btn-primary mt-3">Shrani spremembe</button>
     </form>
 
     @if (Model.Sporocilo != null)
     {
-        <p class="text-success mt-3">@Model.Sporocilo</p>
+        <div class="alert alert-success mt-3">@Model.Sporocilo</div>
     }
-</div>
+else
+{
+    <div class="alert alert-warning">
+    </div>
+}
+}

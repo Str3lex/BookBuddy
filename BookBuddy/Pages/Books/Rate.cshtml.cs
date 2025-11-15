@@ -7,25 +7,30 @@ namespace BookBuddy.Pages.Books
 {
     public class RateModel : PageModel
     {
+        private readonly DataStore _dataStore;
+
+        public RateModel(DataStore dataStore)
+        {
+            _dataStore = dataStore;
+        }
+
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
         [BindProperty]
-        public int Ocena { get; set; }
+        public int Ocena { get; set; } = 3;  // Default ocena
 
         public Knjiga? Knjiga { get; set; }
         public string? Sporocilo { get; set; }
 
         public void OnGet()
         {
-            // Najdi knjigo po ID
-            Knjiga = DataStore.Knjige.FirstOrDefault(k => k.Id == Id);
+            Knjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == Id);
         }
 
         public IActionResult OnPost()
         {
-            // Najdi knjigo po ID
-            var knjiga = DataStore.Knjige.FirstOrDefault(k => k.Id == Id);
+            var knjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == Id);
 
             if (knjiga == null)
             {
@@ -33,10 +38,17 @@ namespace BookBuddy.Pages.Books
                 return Page();
             }
 
-            // Posodobi oceno
+            // Preverite veljavnost ocene
+            if (Ocena < 1 || Ocena > 5)
+            {
+                Sporocilo = "Ocena mora biti med 1 in 5!";
+                return Page();
+            }
+
             knjiga.Rate = Ocena;
 
-            // Vrni na seznam
+            _dataStore.Aktivnosti.Add($"{_dataStore.TrenutniUporabnik?.UporabniskoIme ?? "Gost"} je ocenil knjigo '{knjiga.Naslov}' z oceno {Ocena}");
+
             return RedirectToPage("/Books/List");
         }
     }

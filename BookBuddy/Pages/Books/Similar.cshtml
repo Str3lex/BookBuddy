@@ -1,0 +1,24 @@
+@page
+@model BookBuddy.Pages.Books.SimilarModel
+
+<h2>Podobne knjige</h2>
+
+@if (Model.PodobneKnjige.Any())
+{
+    <ul class="list-group">
+    @foreach (var knjiga in Model.PodobneKnjige)
+    {
+        <li class="list-group-item">@knjiga</li>
+    }
+    </ul>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>Ni podobnih knjig za prikaz ali ni izbrane knjige.</p>
+    </div>
+}
+
+<p class="mt-3">
+    <a href="/Books/List" class="btn btn-secondary">Nazaj na seznam knjig</a>
+</p>
