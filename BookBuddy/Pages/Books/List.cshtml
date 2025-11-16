@@ -1,37 +1,117 @@
-@page
+﻿@page
 @model BookBuddy.Pages.Books.ListModel
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<h2>Seznam knjig</h2>
+<div class="container mt-4">
+    <h2>Seznam knjig</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Naslov</th>
-            <th>Avtor</th>
-            <th>Leto</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var book in Model.Books)
+    @if (Model.IzbrisaneKnjige?.Any() == true)
     {
-        <tr>
-            <td>
-                <a asp-page="/Books/Details" asp-route-id="@book.Id">
-                    @book.Title
-                </a>
-            </td>
-            <td>@book.Author</td>
-            <td>@book.Year</td>
-
-            <td>
-                <form method="post" asp-page-handler="Delete" asp-route-id="@book.Id"
-                      onsubmit="return confirm('Ali res želite izbrisati knjigo?');">
-                    <button class="btn btn-danger">Izbriši</button>
-                </form>
-            </td>
-        </tr>
+    <div class="alert alert-success">
+        Uspešno izbrisane knjige: @string.Join(", ", Model.IzbrisaneKnjige)
+    </div>
     }
-    </tbody>
-</table>
+
+    <form method="post" id="deleteForm">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="selectAll" />
+                    </th>
+                    <th>Naslov</th>
+                    <th>Avtor</th>
+                    <th>Status</th>
+                    <th>Ocena</th>
+                    <th>Žanr</th>
+                    <th>Akcije</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var k in Model.VseKnjige)
+                {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="izbraneKnjige" value="@k.Id" class="knjigaCheckbox" />
+                    </td>
+                    <td>
+                        <a asp-page="Details" asp-route-id="@k.Id">@k.Naslov</a>
+                    </td>
+                    <td>@k.Avtor</td>
+                    <td>@k.Status</td>
+                    <td>@k.Rate</td>
+                    <td>@k.Zvrst</td>
+                    <td>
+                        <button type="button"
+                                class="btn btn-danger btn-sm"
+                                onclick="confirmDelete(@k.Id, '@k.Naslov')">
+                            Izbriši
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-danger" onclick="confirmBulkDelete()"
+                id="bulkDeleteBtn" style="display: none;">
+            Izbriši izbrane knjige
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Izbira vseh knjig
+        document.getElementById('selectAll').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.knjigaCheckbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+            toggleBulkDeleteButton();
+        });
+
+        // Prikaz gumba za množično brisanje
+        function toggleBulkDeleteButton() {
+            const checkedBoxes = document.querySelectorAll('.knjigaCheckbox:checked');
+            const bulkDeleteBtn = document.getElementById('bulkDeleteBtn');
+            bulkDeleteBtn.style.display = checkedBoxes.length > 0 ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('.knjigaCheckbox').forEach(checkbox => {
+            checkbox.addEventListener('change', toggleBulkDeleteButton);
+        });
+
+        // Brisanje posamezne knjige
+        function confirmDelete(id, naslov) {
+            if (confirm(`Ali ste prepričani, da želite izbrisati knjigo "${naslov}"?`)) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = '?handler=Delete';
+
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'id';
+                input.value = id;
+                form.appendChild(input);
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+
+        // Množično brisanje
+        function confirmBulkDelete() {
+            const checkedBoxes = document.querySelectorAll('.knjigaCheckbox:checked');
+            if (checkedBoxes.length === 0) return;
+
+            const knjige = Array.from(checkedBoxes).map(cb => {
+                const row = cb.closest('tr');
+                return row.querySelector('td:nth-child(2)').textContent;
+            });
+
+            if (confirm(`Ali ste prepričani, da želite izbrisati naslednje knjige?\n\n${knjige.join('\n')}`)) {
+                document.getElementById('deleteForm').submit();
+            }
+        }
+    </script>
+}

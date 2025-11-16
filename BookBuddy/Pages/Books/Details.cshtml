@@ -1,49 +1,73 @@
-@page "{id:int}"
+@page
 @model BookBuddy.Pages.Books.DetailsModel
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<h2>@Model.Book.Title</h2>
+<div class="container mt-4">
+    <h2>@Model.Knjiga?.Naslov</h2>
 
-<h3>Dodaj mnenje</h3>
-
-<form method="post">
-    <textarea asp-for="NewReview.Content" rows="4" maxlength="500"></textarea>
-    <span asp-validation-for="NewReview.Content" class="text-danger"></span>
-
-    <button type="submit" class="btn btn-primary mt-2">Dodaj</button>
-</form>
-
-<hr />
-
-<h3>Mnenja</h3>
-
-@if (Model.Reviews.Any())
-{
-    foreach (var r in Model.Reviews)
+    @if (Model.Knjiga != null)
     {
-        <div class="border p-2 mb-3">
-            <p>@r.Content</p>
-            <small>@r.CreatedAt</small>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Podrobnosti knjige</h5>
+            <p><strong>Avtor:</strong> @Model.Knjiga.Avtor</p>
+            <p><strong>Leto izdaje:</strong> @Model.Knjiga.LetoIzdaje</p>
+            <p><strong>Žanr:</strong> @Model.Knjiga.Zvrst</p>
+            <p><strong>Ocena:</strong> @(Model.Knjiga.Rate > 0 ? Model.Knjiga.Rate.ToString() : "Brez ocene")</p>
+            <p><strong>Opis:</strong> @Model.Knjiga.Opis</p>
         </div>
+    </div>
+
+ <!-- Sekcija za mnenja -->
+    <div class="mb-4">
+        <h4>Mnenja</h4>
+
+        <!-- Forma za dodajanje mnenja -->
+        <form method="post" asp-page-handler="AddMnenje">
+            <input type="hidden" name="knjigaId" value="@Model.Knjiga.Id" />
+            <div class="mb-3">
+                <label class="form-label">Dodaj mnenje (max 500 znakov):</label>
+                <textarea name="besedilo" class="form-control" maxlength="500" rows="3"></textarea>
+                <small class="text-muted"><span id="charCount">0</span>/500 znakov</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Objavi mnenje</button>
+        </form>
+    </div>
+
+ <!-- Prikaz obstojeèih mnenj -->
+    <div>
+        <h5>Obstojeèa mnenja:</h5>
+        @foreach (var mnenje in Model.MnenjaZaKnjigo)
+            {
+        <div class="card mb-2">
+            <div class="card-body">
+                <p class="card-text">@mnenje.Besedilo</p>
+                <small class="text-muted">
+                    @mnenje.Datum.ToString("dd.MM.yyyy HH:mm")
+                </small>
+                @if (mnenje.UporabnikId == Model.TrenutniUporabnikId)
+                        {
+                <div class="mt-2">
+                    <form method="post" asp-page-handler="DeleteMnenje" style="display: inline;">
+                        <input type="hidden" name="mnenjeId" value="@mnenje.Id" />
+                        <button type="submit" class="btn btn-sm btn-danger">Izbriši</button>
+                    </form>
+                </div>
+                        }
+            </div>
+        </div>
+            }
+    </div>
     }
-}
-else
-{
-    <p>Ni Å¡e mnenj.</p>
-}
+    else
+    {
+    <p>Knjiga ni najdena.</p>
+    }
+</div>
 
-<h2>@Model.Book.Title</h2>
-
-<p><strong>Avtor:</strong> @Model.Book.Author</p>
-<p><strong>Leto:</strong> @Model.Book.Year</p>
-<p><strong>Å½anr:</strong> @Model.Book.Genre</p>
-<p><strong>Opis:</strong> @Model.Book.Description</p>
-
-@if (Model.Book.Ocena.HasValue)
-{
-    <p><strong>Ocena:</strong> @Model.Book.Ocena</p>
-}
-else
-{
-    <p><strong>Ocena:</strong> Å¡e ni ocenjena</p>
+@section Scripts {
+    <script>
+        document.querySelector('textarea[name="besedilo"]').addEventListener('input', function () {
+            document.getElementById('charCount').textContent = this.value.length;
+        });
+    </script>
 }

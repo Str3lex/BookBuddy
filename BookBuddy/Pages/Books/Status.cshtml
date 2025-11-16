@@ -1,0 +1,26 @@
+﻿@page
+@model BookBuddy.Pages.Books.StatusModel
+
+<div class="container mt-4">
+    <h2>Spremeni status knjige</h2>
+
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label>Status</label>
+            <select asp-for="Status" class="form-control">
+                <option value="Ni prebrana">Ni prebrana</option>
+                <option value="V branju">V branju</option>
+                <option value="Prebrana">Prebrana</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary">Shrani</button>
+    </form>
+
+    @if (Model.Sporocilo != null)
+    {
+        <p class="text-danger mt-2">@Model.Sporocilo</p>
+    }
+</div>

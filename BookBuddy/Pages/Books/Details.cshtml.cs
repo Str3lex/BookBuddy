@@ -7,46 +7,57 @@ namespace BookBuddy.Pages.Books
 {
     public class DetailsModel : PageModel
     {
-        public Book Book { get; set; }
-        public List<Review> Reviews { get; set; }
+        public Knjiga? Knjiga { get; set; }
+        public List<Mnenje> MnenjaZaKnjigo { get; set; } = new();
+        public int TrenutniUporabnikId => DataStore.TrenutniUporabnik?.Id ?? 0;
 
-        [BindProperty]
-        public Review NewReview { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }
 
-        public IActionResult OnGet(int id)
+        public void OnGet()
         {
-            Book = DataStore.Knjige.FirstOrDefault(k => k.Id == id);
-            if (Book == null)
-                return NotFound();
-
-            Reviews = DataStore.Reviews
-                .Where(r => r.BookId == id)
-                .OrderByDescending(r => r.CreatedAt)
-                .ToList();
-
-            return Page();
+            Knjiga = DataStore.Knjige.FirstOrDefault(k => k.Id == Id);
+            if (Knjiga != null)
+            {
+                MnenjaZaKnjigo = DataStore.Mnenja
+                    .Where(m => m.KnjigaId == Knjiga.Id)
+                    .OrderByDescending(m => m.Datum)
+                    .ToList();
+            }
         }
 
-        public IActionResult OnPost(int id)
+        public IActionResult OnPostAddMnenje(int knjigaId, string besedilo)
         {
-            Book = DataStore.Knjige.FirstOrDefault(k => k.Id == id);
-            if (Book == null)
-                return NotFound();
+            if (DataStore.TrenutniUporabnik == null)
+                return RedirectToPage("/Auth/Login");
 
-            if (!ModelState.IsValid)
+            if (string.IsNullOrWhiteSpace(besedilo) || besedilo.Length > 500)
             {
-                Reviews = DataStore.Reviews
-                    .Where(r => r.BookId == id)
-                    .ToList();
-
-                return Page();
+                TempData["Error"] = "Mnenje mora vsebovati med 1 in 500 znakov.";
+                return RedirectToPage(new { id = knjigaId });
             }
 
-            NewReview.Id = DataStore.Reviews.Count + 1;
-            NewReview.BookId = id;
-            DataStore.Reviews.Add(NewReview);
+            var novoMnenje = new Mnenje
+            {
+                Id = DataStore.Mnenja.Count + 1,
+                KnjigaId = knjigaId,
+                UporabnikId = DataStore.TrenutniUporabnik.Id,
+                Besedilo = besedilo.Trim(),
+                Datum = DateTime.Now
+            };
 
-            return RedirectToPage(new { id });
+            DataStore.Mnenja.Add(novoMnenje);
+            return RedirectToPage(new { id = knjigaId });
+        }
+
+        public IActionResult OnPostDeleteMnenje(int mnenjeId)
+        {
+            var mnenje = DataStore.Mnenja.FirstOrDefault(m => m.Id == mnenjeId);
+            if (mnenje != null && mnenje.UporabnikId == DataStore.TrenutniUporabnik?.Id)
+            {
+                DataStore.Mnenja.Remove(mnenje);
+            }
+            return RedirectToPage(new { id = mnenje?.KnjigaId });
         }
     }
 }

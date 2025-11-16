@@ -1,0 +1,54 @@
+@page
+@model BookBuddy.Pages.Books.StatisticsModel
+
+<div class="container mt-4">
+    <h2>Moja knjižna statistika</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Prebrane knjige</h5>
+                    <p class="card-text display-4">@Model.SteviloPrebranihKnjig</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Povpreèna ocena</h5>
+                    <p class="card-text display-4">@Model.PovprecnaOcena.ToString("0.0")</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Vseh knjig</h5>
+                    <p class="card-text display-4">@Model.VsehKnjig</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mt-4">Podrobnosti</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Naslov</th>
+                <th>Status</th>
+                <th>Ocena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var knjiga in Model.VseKnjige)
+            {
+            <tr>
+                <td>@knjiga.Naslov</td>
+                <td>@knjiga.Status</td>
+                <td>@(knjiga.Rate > 0 ? knjiga.Rate.ToString() : "-")</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

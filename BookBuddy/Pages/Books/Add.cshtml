@@ -1,27 +1,42 @@
-@page
+﻿@page
 @model BookBuddy.Pages.Books.AddModel
 
-<h2>Dodaj novo knjigo</h2>
+<div class="container mt-4">
+    <h2>Dodaj knjigo</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label>Naslov *</label>
+            <input asp-for="Naslov" class="form-control" required />
+            <span asp-validation-for="Naslov" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Avtor *</label>
+            <input asp-for="Avtor" class="form-control" required />
+            <span asp-validation-for="Avtor" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Leto izdaje *</label>
+            <input asp-for="LetoIzdaje" type="number" class="form-control" required />
+            <span asp-validation-for="LetoIzdaje" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Žanr *</label>
+            <input asp-for="Zvrst" class="form-control" required />
+            <span asp-validation-for="Zvrst" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Opis</label>
+            <textarea asp-for="Opis" class="form-control" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary">Dodaj</button>
+    </form>
 
-<form method="post">
-
-    <input asp-for="NewBook.Title" placeholder="Naslov" class="form-control" />
-    <span asp-validation-for="NewBook.Title" class="text-danger"></span>
-
-    <input asp-for="NewBook.Author" placeholder="Avtor" class="form-control" />
-    <span asp-validation-for="NewBook.Author" class="text-danger"></span>
-
-    <input asp-for="NewBook.Genre" placeholder="Žanr" class="form-control" />
-    <span asp-validation-for="NewBook.Genre" class="text-danger"></span>
-
-    <input asp-for="NewBook.Year" placeholder="Leto" class="form-control" />
-    <span asp-validation-for="NewBook.Year" class="text-danger"></span>
-
-    <textarea asp-for="NewBook.Description" placeholder="Opis" class="form-control"></textarea>
-    <span asp-validation-for="NewBook.Description" class="text-danger"></span>
-
-    <input asp-for="NewBook.Ocena" type="number" min="1" max="5" placeholder="Ocena (1–5)" class="form-control mt-2" />
-    <span asp-validation-for="NewBook.Ocena" class="text-danger"></span>
-
-    <button type="submit" class="btn btn-primary mt-3">Dodaj</button>
-</form>
+    @if (Model.Sporocilo != null)
+    {
+    <p class="text-success mt-3">@Model.Sporocilo</p>
+    }
+    @if (Model.ErrorSporocilo != null)
+    {
+    <p class="text-danger mt-3">@Model.ErrorSporocilo</p>
+    }
+</div>

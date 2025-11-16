@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ZyiXyKuhZRg=",
+  "dgSpecHash": "4E2EEJEK8bk=",
   "success": true,
-  "projectFilePath": "/Users/aleks/BookBuddy/BookBuddy/BookBuddy.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Namizje\\BookBuddy\\BookBuddy\\BookBuddy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aleks\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.13\\microsoft.aspnetcore.openapi.7.0.13.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512"
+  ],
   "logs": []
 }
