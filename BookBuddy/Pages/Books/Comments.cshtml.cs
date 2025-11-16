@@ -16,7 +16,7 @@ public class CommentsModel : PageModel
 
     public List<Komentar> Komentarji => _dataStore.Komentarji;
 
-    [BindProperty] 
+    [BindProperty]
     public string VnosKomentarja { get; set; } = string.Empty;
 
     public IActionResult OnPost()

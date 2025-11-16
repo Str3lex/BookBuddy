@@ -36,7 +36,7 @@ public class RegisterModel : PageModel
         var user = new Models.Uporabnik
         {
             UporabniskoIme = UporabniskoIme,
-            Email = Eposta, 
+            Email = Eposta,
             Geslo = Geslo
         };
 

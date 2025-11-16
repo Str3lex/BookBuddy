@@ -1,4 +1,4 @@
-namespace BookBuddy.Models;
+﻿namespace BookBuddy.Models;
 
 public class Komentar
 {

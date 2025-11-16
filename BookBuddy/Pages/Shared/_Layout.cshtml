@@ -6,43 +6,11 @@
     <title>@ViewData["Title"] - BookBuddy</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <style>
-        /* Custom styles for full-width header and footer */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .navbar {
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-            .navbar > .container-fluid {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-        .footer {
-            margin-top: auto;
-            width: 100%;
-        }
-
-            .footer .container-fluid {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-        main {
-            flex: 1;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom mb-3">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
                 <a class="navbar-brand" href="/">BookBuddy</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -60,6 +28,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/Books/Random">Naključna</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Books/Statistics">Statistika</a> <!-- DODAJTE TO -->
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/Auth/Activity">Aktivnosti</a>
@@ -83,7 +54,6 @@
             </div>
         </nav>
     </header>
-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -91,7 +61,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container-fluid">
+        <div class="container">
             &copy; 2024 - BookBuddy
         </div>
     </footer>

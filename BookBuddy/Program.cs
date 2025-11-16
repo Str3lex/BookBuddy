@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-// Register DataStore for dependency injection
+// Register DataStore for dependency injection - DODAJTE TO VRSTICO
 builder.Services.AddSingleton<DataStore>();
 
 var app = builder.Build();

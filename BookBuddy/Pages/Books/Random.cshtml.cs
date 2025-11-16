@@ -35,7 +35,7 @@ public class RandomModel : PageModel
             var nakljucniIndex = _random.Next(_dataStore.Knjige.Count);
             var izbranaKnjiga = _dataStore.Knjige[nakljucniIndex];
             RandomBook = $"{izbranaKnjiga.Naslov} - {izbranaKnjiga.Avtor} ({izbranaKnjiga.Zanr})";
-            
+
             _dataStore.Aktivnosti.Add($"{_dataStore.TrenutniUporabnik?.UporabniskoIme ?? "Gost"} je pregledal naključno knjigo: {izbranaKnjiga.Naslov}");
         }
         else

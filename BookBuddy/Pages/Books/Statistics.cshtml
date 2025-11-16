@@ -1,0 +1,105 @@
+﻿@page
+@model BookBuddy.Pages.Books.StatisticsModel
+
+<h2>Statistika knjig</h2>
+
+<div class="row mt-4">
+    <div class="col-md-3 mb-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Vse knjige</h5>
+                <h2 class="card-text">@Model.VsehKnjig</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Prebrane</h5>
+                <h2 class="card-text">@Model.SteviloPrebranihKnjig</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">V branju</h5>
+                <h2 class="card-text">@Model.SteviloVBranju</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card text-white bg-secondary">
+            <div class="card-body">
+                <h5 class="card-title">Neprebrane</h5>
+                <h2 class="card-text">@Model.SteviloNeprebranih</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Povprečna ocena</h5>
+                <h3 class="card-text text-info">@Model.PovprecnaOcena/5</h3>
+                <p class="text-muted">Povprečje vseh ocenjenih knjig</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Razmerje statusov</h5>
+                <div class="progress" style="height: 30px;">
+                    @{
+                        var prebranePercent = Model.VsehKnjig > 0 ? (Model.SteviloPrebranihKnjig * 100) / Model.VsehKnjig : 0;
+                        var vBranjuPercent = Model.VsehKnjig > 0 ? (Model.SteviloVBranju * 100) / Model.VsehKnjig : 0;
+                        var neprebranePercent = Model.VsehKnjig > 0 ? (Model.SteviloNeprebranih * 100) / Model.VsehKnjig : 0;
+                    }
+                    <div class="progress-bar bg-success" style="width: @prebranePercent%" title="Prebrane: @Model.SteviloPrebranihKnjig">
+                        @prebranePercent%
+                    </div>
+                    <div class="progress-bar bg-warning" style="width: @vBranjuPercent%" title="V branju: @Model.SteviloVBranju">
+                        @vBranjuPercent%
+                    </div>
+                    <div class="progress-bar bg-secondary" style="width: @neprebranePercent%" title="Neprebrane: @Model.SteviloNeprebranih">
+                        @neprebranePercent%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.VseKnjige.Any())
+{
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Najbolje ocenjene knjige</h5>
+                    <ul class="list-group">
+                        @foreach (var knjiga in Model.VseKnjige.Where(k => k.Rate >= 4).OrderByDescending(k => k.Rate).Take(5))
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                @knjiga.Naslov - @knjiga.Avtor
+                                <span class="badge bg-primary rounded-pill">@knjiga.Rate/5</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<p class="mt-4">
+    <a href="/Books/List" class="btn btn-secondary">Nazaj na seznam knjig</a>
+    <a href="/" class="btn btn-primary">Domov</a>
+</p>

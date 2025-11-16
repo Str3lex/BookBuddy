@@ -18,7 +18,7 @@ public class SimilarModel : PageModel
     public void OnGet()
     {
         var knjiga = _dataStore.IzbraneKnjige?.LastOrDefault();
-        
+
         if (knjiga == null)
         {
             PodobneKnjige = new List<string>();

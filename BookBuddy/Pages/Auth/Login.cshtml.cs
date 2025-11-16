@@ -39,3 +39,4 @@ namespace BookBuddy.Pages.Auth
         }
     }
 }
+

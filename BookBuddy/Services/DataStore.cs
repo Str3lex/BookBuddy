@@ -10,4 +10,6 @@ public class DataStore
     public List<Knjiga> IzbraneKnjige { get; set; } = new List<Knjiga>();
     public List<Komentar> Komentarji { get; set; } = new List<Komentar>();
     public Uporabnik? TrenutniUporabnik { get; set; }
+    public static List<Mnenje> Mnenja = new();
+
 }
