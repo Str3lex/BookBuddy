@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  bookbuddy:
-    image: ${DOCKER_REGISTRY-}bookbuddy
-    build:
-      context: .
-      dockerfile: BookBuddy/Dockerfile
