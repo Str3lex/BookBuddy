@@ -1,0 +1,88 @@
+﻿@page
+@model BookBuddy.Pages.Books.DetailsModel
+
+<div class="container mt-4">
+    <h2>@Model.Knjiga?.Naslov</h2>
+
+    @if (Model.Knjiga != null)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Podrobnosti knjige</h5>
+                <p><strong>Avtor:</strong> @Model.Knjiga.Avtor</p>
+                <p><strong>Leto izdaje:</strong> @Model.Knjiga.LetoIzdaje</p>
+                <p><strong>Žanr:</strong> @Model.Knjiga.Zanr</p>
+                <p><strong>Status:</strong> @Model.Knjiga.Status</p>
+                <p><strong>Ocena:</strong> @(Model.Knjiga.Rate > 0 ? Model.Knjiga.Rate.ToString() + "/5" : "Brez ocene")</p>
+            </div>
+        </div>
+
+        <!-- Sekcija za komentarje -->
+        <div class="mb-4">
+            <h4>Komentarji</h4>
+
+            @if (Model.TrenutniUporabnikIme != null)
+            {
+                <form method="post" asp-page-handler="AddComment">
+                    <input type="hidden" name="knjigaId" value="@Model.Knjiga.Id" />
+                    <div class="mb-3">
+                        <label class="form-label">Dodaj komentar:</label>
+                        <textarea name="besedilo" class="form-control" maxlength="500" rows="3" placeholder="Napišite svoj komentar..."></textarea>
+                        <small class="text-muted"><span id="charCount">0</span>/500 znakov</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Objavi komentar</button>
+                </form>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <a href="/Auth/Login">Prijavite se</a> za komentiranje knjig.
+                </div>
+            }
+        </div>
+
+        <!-- Prikaz obstoječih komentarjev -->
+        <div>
+            <h5>Komentarji:</h5>
+            @if (Model.KomentarjiZaKnjigo.Any())
+            {
+                @foreach (var komentar in Model.KomentarjiZaKnjigo)
+                {
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">@komentar.Uporabnik</h6>
+                            <p class="card-text">@komentar.Besedilo</p>
+                            <small class="text-muted">
+                                @komentar.Datum.ToString("dd.MM.yyyy HH:mm")
+                            </small>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Še ni komentarjev za to knjigo.</p>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            <p>Knjiga ni najdena.</p>
+        </div>
+    }
+</div>
+
+<p class="mt-3">
+    <a href="/Books/List" class="btn btn-secondary">Nazaj na seznam knjig</a>
+    <a href="/Books/Rate?id=@Model.Knjiga?.Id" class="btn btn-warning">Oceni knjigo</a>
+    <a href="/Books/Status?id=@Model.Knjiga?.Id" class="btn btn-primary">Spremeni status</a>
+</p>
+
+@section Scripts {
+    <script>
+        document.querySelector('textarea[name="besedilo"]')?.addEventListener('input', function () {
+            document.getElementById('charCount').textContent = this.value.length;
+        });
+    </script>
+}

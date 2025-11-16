@@ -1,0 +1,67 @@
+﻿@page
+@model BookBuddy.Pages.Auth.FollowModel
+
+<h2>Sledi uporabnikom</h2>
+
+@if (Model.TrenutniUporabnik == null)
+{
+    <div class="alert alert-warning">
+        <p>Za uporabo te funkcionalnosti se morate <a href="/Auth/Login">prijaviti</a>.</p>
+    </div>
+}
+else
+{
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Uporabniško ime</th>
+                    <th>Email</th>
+                    <th>Akcija</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var uporabnik in Model.VsiUporabniki)
+                {
+                    <tr>
+                        <td>@uporabnik.UporabniskoIme</td>
+                        <td>@uporabnik.Email</td>
+                        <td>
+                            @{
+                                var alreadyFollowing = Model.AliSlediUporabniku(uporabnik.UporabniskoIme);
+                            }
+                            <button type="submit" name="followUser" value="@uporabnik.UporabniskoIme"
+                                    class="btn @(alreadyFollowing ? "btn-warning" : "btn-primary")">
+                                @(alreadyFollowing ? "Nehaj slediti" : "Sledi")
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+
+    @if (!Model.VsiUporabniki.Any())
+    {
+        <div class="alert alert-info">
+            <p>Ni drugih uporabnikov za prikaz.</p>
+        </div>
+    }
+
+    @if (Model.TrenutniUporabnik.Sledi != null && Model.TrenutniUporabnik.Sledi.Any())
+    {
+        <div class="mt-4">
+            <h4>Uporabniki, ki jim sledite:</h4>
+            <ul class="list-group">
+                @foreach (var sledeni in Model.TrenutniUporabnik.Sledi)
+                {
+                    <li class="list-group-item">@sledeni.UporabniskoIme - @sledeni.Email</li>
+                }
+            </ul>
+        </div>
+    }
+}
+
+<p class="mt-3">
+    <a href="/" class="btn btn-secondary">Nazaj na domačo stran</a>
+</p>

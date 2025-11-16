@@ -1,0 +1,28 @@
+﻿@page
+@model BookBuddy.Pages.Books.CommentsModel
+
+<h2>Komentarji</h2>
+
+<!-- Obrazec za dodajanje komentarja -->
+<form method="post">
+    <div class="form-group">
+        <label for="VnosKomentarja">Dodaj komentar:</label>
+        <textarea asp-for="VnosKomentarja" class="form-control" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Objavi komentar</button>
+</form>
+
+<!-- Prikaz komentarjev -->
+<div class="mt-4">
+    <h3>Komentarji:</h3>
+    @foreach (var komentar in Model.Komentarji)
+    {
+        <div class="card mb-2">
+            <div class="card-body">
+                <h6 class="card-title">@komentar.Uporabnik</h6>
+                <p class="card-text">@komentar.Besedilo</p>
+                <small class="text-muted">@komentar.Datum.ToString("dd.MM.yyyy HH:mm")</small>
+            </div>
+        </div>
+    }
+</div>

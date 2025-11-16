@@ -1,0 +1,23 @@
+﻿@page
+@model BookBuddy.Pages.Books.RandomModel
+
+<h2>Naključna knjiga dneva</h2>
+
+@if (!string.IsNullOrEmpty(Model.RandomBook))
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.RandomBook</h5>
+            <p class="card-text">Današnja naključno izbrana knjiga</p>
+        </div>
+    </div>
+}
+else
+{
+    <p>Trenutno ni na voljo nobenih knjig.</p>
+}
+
+<br>
+<form method="post">
+    <button type="submit" class="btn btn-primary">Izberi novo naključno knjigo</button>
+</form>

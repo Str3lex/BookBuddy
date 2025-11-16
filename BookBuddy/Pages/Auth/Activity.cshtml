@@ -1,0 +1,22 @@
+﻿@page
+@model BookBuddy.Pages.Auth.ActivityModel
+
+<h2>Aktivnosti</h2>
+
+@if (Model.Aktivnosti.Any())
+{
+    <ul class="list-group">
+        @foreach (var aktivnost in Model.Aktivnosti)
+        {
+            <li class="list-group-item">@aktivnost</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Ni aktivnosti za prikaz.</p>
+}
+
+<p class="mt-3">
+    <a href="/" class="btn btn-secondary">Nazaj na domačo stran</a>
+</p>
