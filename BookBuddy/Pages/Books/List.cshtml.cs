@@ -38,5 +38,11 @@ namespace BookBuddy.Pages.Books
             // sortiranje po naslovu
             Knjige = knjige.OrderBy(k => k.Naslov).ToList();
         }
+
+        public IActionResult OnPostDelete(int id)
+        {
+            _dataStore.DeleteKnjiga(id); // Use database delete method
+            return RedirectToPage();
+        }
     }
 }

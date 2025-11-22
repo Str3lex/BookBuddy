@@ -52,7 +52,7 @@ namespace BookBuddy.Pages.Books
                 Rate = 0
             };
 
-            _dataStore.Knjige.Add(knjiga);
+            _dataStore.SaveKnjiga(knjiga); // Use database save method
             _dataStore.Aktivnosti.Add($"{user.UporabniskoIme} je dodal knjigo: {Naslov}");
 
             Sporocilo = "Knjiga uspešno dodana!";

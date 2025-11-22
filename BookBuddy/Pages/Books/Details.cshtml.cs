@@ -26,8 +26,9 @@ namespace BookBuddy.Pages.Books
             Knjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == Id);
             if (Knjiga != null)
             {
+                // POPRAVLJENO: Pravilno filtriranje komentarjev za knjigo
                 KomentarjiZaKnjigo = _dataStore.Komentarji
-                    .Where(k => k.Besedilo.Contains(Knjiga.Naslov) || _dataStore.Komentarji.Any())
+                    .Where(k => k.KnjigaId == Id)  // SPREMENI: Uporabi KnjigaId namesto Contains
                     .OrderByDescending(k => k.Datum)
                     .ToList();
             }
@@ -48,10 +49,11 @@ namespace BookBuddy.Pages.Books
             {
                 Uporabnik = _dataStore.TrenutniUporabnik.UporabniskoIme,
                 Besedilo = besedilo.Trim(),
-                Datum = DateTime.Now
+                Datum = DateTime.Now,
+                KnjigaId = knjigaId  // DODANO: Shrani ID knjige
             };
 
-            _dataStore.Komentarji.Add(novKomentar);
+            _dataStore.SaveKomentar(novKomentar); // SPREMENI: Uporabi database save method
             _dataStore.Aktivnosti.Add($"{_dataStore.TrenutniUporabnik.UporabniskoIme} je komentiral knjigo: {_dataStore.Knjige.FirstOrDefault(k => k.Id == knjigaId)?.Naslov}");
 
             return RedirectToPage(new { id = knjigaId });

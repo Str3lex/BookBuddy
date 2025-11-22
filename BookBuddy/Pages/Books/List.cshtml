@@ -36,6 +36,10 @@
                         <a href="/Books/Status?id=@knjiga.Id" class="btn btn-sm btn-primary">Spremeni status</a>
                         <a href="/Books/Rate?id=@knjiga.Id" class="btn btn-sm btn-warning">Oceni</a>
                         <a href="/Books/Edit?id=@knjiga.Id" class="btn btn-sm btn-primary">Uredi</a>
+                        <!-- DODAJ BRISANJE -->
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@knjiga.Id" style="display: inline;" onsubmit="return confirm('Ali ste prepričani, da želite izbrisati knjigo?');">
+                            <button type="submit" class="btn btn-sm btn-danger">Izbriši</button>
+                        </form>
                     </td>
                 </tr>
             }
