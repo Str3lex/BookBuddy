@@ -10,58 +10,54 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="container-fluid">
+
+                <!-- LOGO -->
                 <a class="navbar-brand nav-link-custom" href="/">BookBuddy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/">Domov</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Books/List">Vse knjige</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Books/Add">Dodaj knjigo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Books/Random">Naključna</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Books/Statistics">Statistika</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Auth/Activity">Aktivnosti</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Auth/Follow">Sledi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Books/OrderBy">Razvrščanje</a>
-                        </li>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="mainNavbar">
+
+                    <!-- LEVA STRAN -->
+                    <ul class="navbar-nav me-auto" style="gap: 10px;">
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Books/List">Vse knjige</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Books/Random">Naključna</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Books/Statistics">Statistika</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Auth/Activity">Aktivnosti</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Auth/Follow">Sledi</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Books/OrderBy">Razvrščanje</a></li>
                     </ul>
-                    <ul class="navbar-nav">
-                        <!-- Theme Toggle -->
+
+                    <!-- 🔍 ISKALNA VRSTICA (SREDINSKA) -->
+                    <form class="d-flex me-3" method="get" asp-page="/Books/List">
+                        <input class="form-control bg-white text-dark border-secondary"
+                               type="search"
+                               name="iskanje"
+                               placeholder="Išči po naslovu, avtorju, žanru..."
+                               style="width: 240px;" />
+
+                        <button class="btn btn-outline-secondary ms-2" type="submit">
+                            Išči
+                        </button>
+                    </form>
+
+                    <!-- DESNA STRAN -->
+                    <ul class="navbar-nav" style="gap: 10px;">
                         <li class="nav-item">
-                            <button id="themeToggle" class="btn btn-outline-secondary btn-sm">
-                                🌙 Dark
-                            </button>
+                            <button id="themeToggle" class="btn btn-outline-secondary btn-sm">🌙 Dark</button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Auth/Login">Prijava</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Auth/Register">Registracija</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="/Uporabnik/Profile">Profil</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Auth/Login">Prijava</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Auth/Register">Registracija</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="/Uporabnik/Profile">Profil</a></li>
                     </ul>
+
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

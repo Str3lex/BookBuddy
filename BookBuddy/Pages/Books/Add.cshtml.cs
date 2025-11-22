@@ -23,6 +23,9 @@ namespace BookBuddy.Pages.Books
         [BindProperty]
         public int LetoIzdaje { get; set; }
 
+        [BindProperty]
+        public string Zanr { get; set; } = string.Empty;
+
         public string? Sporocilo { get; set; }
 
         public void OnGet()
@@ -35,12 +38,15 @@ namespace BookBuddy.Pages.Books
             if (user == null)
                 return RedirectToPage("/Auth/Login");
 
+            if (!ModelState.IsValid)
+                return Page();
+
             var knjiga = new Knjiga
             {
                 Id = _dataStore.Knjige.Count + 1,
                 Naslov = Naslov,
                 Avtor = Avtor,
-                Zanr = "Neopredeljeno",
+                Zanr = string.IsNullOrWhiteSpace(Zanr) ? "Neopredeljeno" : Zanr,
                 LetoIzdaje = LetoIzdaje,
                 Status = "Ni prebrana",
                 Rate = 0

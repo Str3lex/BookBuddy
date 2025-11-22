@@ -9,105 +9,105 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookBuddy
 build_property.RootNamespace = BookBuddy
-build_property.ProjectDir = /Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/
+build_property.ProjectDir = C:\Users\Uporabnik\Desktop\FERI\2 LETNIK\1 SEMESTER\Razvoj in gradnja informacijskih sistemov\GITPROJEKT\BookBuddy\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/vid.mahoric/Desktop/BookBuddy/BookBuddy
+build_property.MSBuildProjectDirectory = C:\Users\Uporabnik\Desktop\FERI\2 LETNIK\1 SEMESTER\Razvoj in gradnja informacijskih sistemov\GITPROJEKT\BookBuddy
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 7.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Auth/Activity.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aC9BY3Rpdml0eS5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Auth/Activity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBY3Rpdml0eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Auth/Follow.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aC9Gb2xsb3cuY3NodG1s
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Auth/Follow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxGb2xsb3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Auth/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aC9Mb2dpbi5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Auth/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aC9SZWdpc3Rlci5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvQWRkLmNzaHRtbA==
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Comments.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvQ29tbWVudHMuY3NodG1s
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Comments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcQ29tbWVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvRWRpdC5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvTGlzdC5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/OrderBy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvT3JkZXJCeS5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/OrderBy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcT3JkZXJCeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Random.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvUmFuZG9tLmNzaHRtbA==
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Random.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcUmFuZG9tLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Rate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvUmF0ZS5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Rate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcUmF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Similar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvU2ltaWxhci5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Similar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcU2ltaWxhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Statistics.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvU3RhdGlzdGljcy5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Statistics.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcU3RhdGlzdGljcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Books/Status.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va3MvU3RhdHVzLmNzaHRtbA==
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Books/Status.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcU3RhdHVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Uporabnik/Profile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXBvcmFibmlrL1Byb2ZpbGUuY3NodG1s
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Uporabnik/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBvcmFibmlrXFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/vid.mahoric/Desktop/BookBuddy/BookBuddy/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-gv46uvtvj3
+[C:/Users/Uporabnik/Desktop/FERI/2 LETNIK/1 SEMESTER/Razvoj in gradnja informacijskih sistemov/GITPROJEKT/BookBuddy/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-qnl4t090q1

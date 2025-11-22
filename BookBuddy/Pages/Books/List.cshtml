@@ -3,6 +3,11 @@
 
 <h2>Seznam knjig</h2>
 
+@if (!string.IsNullOrWhiteSpace(Model.Iskanje))
+{
+    <p><strong>Rezultati iskanja za:</strong> "@Model.Iskanje"</p>
+}
+
 @if (Model.Knjige.Any())
 {
     <table class="table table-striped">
@@ -39,9 +44,18 @@
 }
 else
 {
-    <div class="alert alert-info">
-        <p>Ni še dodanih knjig. <a href="/Books/Add">Dodaj prvo knjigo</a></p>
-    </div>
+    if (!string.IsNullOrWhiteSpace(Model.Iskanje))
+    {
+        <div class="alert alert-warning">
+            <strong>Ni zadetkov</strong> za iskalni izraz "@Model.Iskanje".
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            Ni še dodanih knjig. <a href="/Books/Add">Dodaj prvo knjigo</a>
+        </div>
+    }
 }
 
 <p>

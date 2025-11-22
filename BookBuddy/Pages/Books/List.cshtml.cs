@@ -1,23 +1,42 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using BookBuddy.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookBuddy.Models;
+using BookBuddy.Services;
 using System.Linq;
 
-namespace BookBuddy.Pages.Books;
-
-public class ListModel : PageModel
+namespace BookBuddy.Pages.Books
 {
-    private readonly DataStore _dataStore;
-
-    public ListModel(DataStore dataStore)
+    public class ListModel : PageModel
     {
-        _dataStore = dataStore;
-    }
+        private readonly DataStore _dataStore;
 
-    public List<Knjiga> Knjige { get; set; } = new List<Knjiga>();
+        public ListModel(DataStore dataStore)
+        {
+            _dataStore = dataStore;
+        }
 
-    public void OnGet()
-    {
-        Knjige = _dataStore.Knjige.ToList();
+        public List<Knjiga> Knjige { get; set; } = new();
+
+        [BindProperty(SupportsGet = true)]
+        public string Iskanje { get; set; } = string.Empty;
+
+        public void OnGet()
+        {
+            var knjige = _dataStore.Knjige.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(Iskanje))
+            {
+                string s = Iskanje.ToLower();
+
+                knjige = knjige.Where(k =>
+                    k.Naslov.ToLower().Contains(s) ||
+                    k.Avtor.ToLower().Contains(s) ||
+                    k.Zanr.ToLower().Contains(s)
+                );
+            }
+
+            // sortiranje po naslovu
+            Knjige = knjige.OrderBy(k => k.Naslov).ToList();
+        }
     }
 }
