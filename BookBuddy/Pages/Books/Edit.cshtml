@@ -1,0 +1,83 @@
+@page
+@model BookBuddy.Pages.Books.EditModel
+@{
+    ViewData["Title"] = "Uredi Knjigo";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Uredi Knjigo</h1>
+
+            @if (!string.IsNullOrEmpty(Model.ErrorSporocilo))
+            {
+                <div class="alert alert-danger">
+                    @Model.ErrorSporocilo
+                    <div class="mt-2">
+                        <a href="/Books/List" class="btn btn-primary">Nazaj na seznam knjig</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @if (!string.IsNullOrEmpty(Model.Sporocilo))
+                {
+                    <div class="alert alert-success">
+                        @Model.Sporocilo
+                        <div class="mt-2">
+                            <a href="/Books/List" class="btn btn-primary">Nazaj na seznam</a>
+                        </div>
+                    </div>
+                }
+
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="Knjiga.Id" />
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label asp-for="Knjiga.Naslov" class="form-label">Naslov *</label>
+                                        <input asp-for="Knjiga.Naslov" class="form-control" />
+                                        <span asp-validation-for="Knjiga.Naslov" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label asp-for="Knjiga.Avtor" class="form-label">Avtor *</label>
+                                        <input asp-for="Knjiga.Avtor" class="form-control" />
+                                        <span asp-validation-for="Knjiga.Avtor" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label asp-for="Knjiga.Zanr" class="form-label">Žanr *</label>
+                                        <input asp-for="Knjiga.Zanr" class="form-control" />
+                                        <span asp-validation-for="Knjiga.Zanr" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label asp-for="Knjiga.LetoIzdaje" class="form-label">Leto izdaje *</label>
+                                        <input asp-for="Knjiga.LetoIzdaje" class="form-control" type="number" />
+                                        <span asp-validation-for="Knjiga.LetoIzdaje" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                                <div>
+                                    <button type="submit" class="btn btn-success">Shrani spremembe</button>
+                                    <a href="/Books/List" class="btn btn-secondary">Prekliči</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

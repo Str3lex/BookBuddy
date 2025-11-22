@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,45 +9,54 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/">BookBuddy</a>
+                <a class="navbar-brand nav-link-custom" href="/">BookBuddy</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Domov</a>
+                            <a class="nav-link nav-link-custom" href="/">Domov</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Books/List">Vse knjige</a>
+                            <a class="nav-link nav-link-custom" href="/Books/List">Vse knjige</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Books/Add">Dodaj knjigo</a>
+                            <a class="nav-link nav-link-custom" href="/Books/Add">Dodaj knjigo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Books/Random">Naključna</a>
+                            <a class="nav-link nav-link-custom" href="/Books/Random">Naključna</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Books/Statistics">Statistika</a> <!-- DODAJTE TO -->
+                            <a class="nav-link nav-link-custom" href="/Books/Statistics">Statistika</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Auth/Activity">Aktivnosti</a>
+                            <a class="nav-link nav-link-custom" href="/Auth/Activity">Aktivnosti</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Auth/Follow">Sledi</a>
+                            <a class="nav-link nav-link-custom" href="/Auth/Follow">Sledi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="/Books/OrderBy">Razvrščanje</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
+                        <!-- Theme Toggle -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Auth/Login">Prijava</a>
+                            <button id="themeToggle" class="btn btn-outline-secondary btn-sm">
+                                🌙 Dark
+                            </button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Auth/Register">Registracija</a>
+                            <a class="nav-link nav-link-custom" href="/Auth/Login">Prijava</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Uporabnik/Profile">Profil</a>
+                            <a class="nav-link nav-link-custom" href="/Auth/Register">Registracija</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="/Uporabnik/Profile">Profil</a>
                         </li>
                     </ul>
                 </div>
@@ -60,14 +69,51 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - BookBuddy
+<footer class="border-top footer text-muted mt-auto py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                &copy; 2025 - BookBuddy
+            </div>
+            <div class="col-md-6 text-md-end">
+                <small>Vaša knjižnica vedno s seboj</small>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            // Load saved theme from localStorage
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            updateToggleButton(savedTheme);
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateToggleButton(newTheme);
+            });
+            
+            function updateToggleButton(theme) {
+                themeToggle.textContent = theme === 'light' ? '🌙 Dark' : '☀️ Light';
+                themeToggle.className = theme === 'light' ? 
+                    'btn btn-outline-secondary btn-sm' : 
+                    'btn btn-outline-warning btn-sm';
+            }
+        });
+    </script>
 </body>
 </html>

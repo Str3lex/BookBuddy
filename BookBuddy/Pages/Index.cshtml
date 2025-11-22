@@ -26,6 +26,8 @@
                     <a href="/Books/Rate" class="btn btn-outline-warning mt-2">Oceni knjigo</a>
                     <a href="/Books/Similar" class="btn btn-outline-info mt-2">Podobne knjige</a>
                     <a href="/Books/Statistics" class="btn btn-outline-success mt-2">Statistika</a>
+                    <a href="/Books/OrderBy" class="btn btn-outline-primary">Razvrščanje</a>
+                    <a href="/Books/Edit" class="btn btn-outline-warning mt-2">Uredi</a>
                 </div>
             </div>
         </div>
@@ -41,20 +43,6 @@
             </div>
         </div>
     </div>
-
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5>Račun</h5>
-                    <a href="/Auth/Login" class="btn btn-outline-dark">Prijava</a>
-                    <a href="/Auth/Register" class="btn btn-outline-dark">Registracija</a>
-                    <a href="/Uporabnik/Profile" class="btn btn-outline-dark">Moj profil</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     @if (Model.TrenutniUporabnik != null)
     {
         <div class="row mt-4">
