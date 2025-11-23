@@ -153,28 +153,23 @@ public class DataStore
             }
         }
     }
-
     public void IzbrisiKnjigo(int knjigaId)
     {
+        // Najprej najdi iz IN-MEMORY liste
         var knjiga = Knjige.FirstOrDefault(k => k.Id == knjigaId);
-        if (knjiga != null)
+
+        // Odstrani iz liste
+        Knjige.RemoveAll(k => k.Id == knjigaId);
+
+        // Poskusi odstranit tudi iz DB, če obstaja
+        var knjigaDb = _context?.Knjige.FirstOrDefault(k => k.Id == knjigaId);
+        if (knjigaDb != null)
         {
-            Knjige.Remove(knjiga);
-            // Also delete from database
-            DeleteKnjiga(knjigaId);
+            _context.Knjige.Remove(knjigaDb);
+            _context.SaveChanges();
         }
     }
 
-    public bool PrijaviUporabnika(string email, string geslo)
-    {
-        var uporabnik = Uporabniki.FirstOrDefault(u => u.Email == email && u.Geslo == geslo);
-        if (uporabnik != null)
-        {
-            TrenutniUporabnik = uporabnik;
-            return true;
-        }
-        return false;
-    }
 
     public void RegistrirajUporabnika(Uporabnik novUporabnik)
     {

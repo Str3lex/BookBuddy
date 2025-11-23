@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.2.2" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\\BookBuddy\\BookBuddy.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+</Project>

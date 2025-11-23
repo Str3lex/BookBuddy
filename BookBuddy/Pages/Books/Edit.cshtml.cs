@@ -73,21 +73,31 @@ namespace BookBuddy.Pages.Books
 
             return Page();
         }
-
         public IActionResult OnPostDelete()
         {
-            var obstojecaKnjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == Id);
+            int knjigaId = Id > 0 ? Id : Knjiga.Id;
+
+            // Najdi knjigo PREJ, preden jo zbrišeš
+            var obstojecaKnjiga = _dataStore.Knjige.FirstOrDefault(k => k.Id == knjigaId);
             if (obstojecaKnjiga == null)
             {
                 ErrorSporocilo = "Knjiga ni najdena!";
                 return Page();
             }
 
-            _dataStore.IzbrisiKnjigo(Id);
-            TempData["SuccessMessage"] = $"Knjiga '{obstojecaKnjiga.Naslov}' je bila uspešno izbrisana!";
-            
+            // Shrani naslov, ker objekta po brisanju ne bo več
+            string naslovKnjige = obstojecaKnjiga.Naslov;
+
+            // Zbriši knjigo
+            _dataStore.IzbrisiKnjigo(knjigaId);
+
+            // Uporabi shranjen naslov, ne objekt!!
+            TempData["SuccessMessage"] = $"Knjiga '{naslovKnjige}' je bila uspešno izbrisana!";
+
             return RedirectToPage("/Books/List");
         }
+
+
     }
 
     public class KnjigaViewModel
