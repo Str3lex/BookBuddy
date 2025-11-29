@@ -32,7 +32,3 @@ jobs:
           app-name: BooBuddy
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: publish_output
-        with:
-          app-name: BookBuddy
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          images: ${{ env.IMAGE }}
