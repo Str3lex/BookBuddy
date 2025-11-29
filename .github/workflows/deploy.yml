@@ -18,13 +18,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore BookBuddy.sln
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+      - name: Build solution
+        run: dotnet build BookBuddy.sln --configuration Release --no-restore
 
-      - name: Publish
-        run: dotnet publish -c Release -o publish_output
+      - name: Publish WebApp
+        run: dotnet publish BookBuddy/BookBuddy.csproj -c Release -o publish_output
 
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v2
