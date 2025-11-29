@@ -1,35 +1,37 @@
-name: Build and Deploy to Azure Web App
+name: Deploy .NET Web App to Azure
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          dotnet-version: '8.0.x'
 
-      - name: Build Docker image
-        run: |
-          IMAGE=index.docker.io/videk123/bookbuddy:latest
-          docker build -t $IMAGE .
-          echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+      - name: Restore
+        run: dotnet restore
 
-      - name: Push Docker image
-        run: docker push ${{ env.IMAGE }}
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
 
-      - name: Deploy to Azure Web App for Containers
-        uses: azure/webapps-deploy@v3
+      - name: Publish
+        run: dotnet publish -c Release -o publish_output
+
+      - name: Deploy to Azure WebApp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: BooBuddy            # ISTO ime kot tvoja Azure WebApp!
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: publish_output
         with:
           app-name: BookBuddy
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
