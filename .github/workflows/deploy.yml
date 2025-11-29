@@ -17,7 +17,7 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore
+      - name: Restore dependencies
         run: dotnet restore
 
       - name: Build
@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: BooBuddy            # ISTO ime kot tvoja Azure WebApp!
+          app-name: BooBuddy
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: publish_output
         with:
