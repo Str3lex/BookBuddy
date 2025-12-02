@@ -1,22 +1,23 @@
-name: Deploy .NET Web App to Azure
+name: Deploy to DEV Environment
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev" ]  
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-dev:
     runs-on: ubuntu-latest
+    environment: dev  
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-
+          
       - name: Restore dependencies
         run: dotnet restore BookBuddy.sln
 
@@ -26,9 +27,9 @@ jobs:
       - name: Publish WebApp
         run: dotnet publish BookBuddy/BookBuddy.csproj -c Release -o publish_output
 
-      - name: Deploy to Azure WebApp
+      - name: Deploy to Azure WebApp (DEV)
         uses: azure/webapps-deploy@v2
         with:
-          app-name: BooBuddy
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: publish_output
+          app-name: 'bookbuddy-dev'  
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}  
+          package: 'publish_output'
